@@ -9,7 +9,7 @@ const clientTwitch = new tmi.Client({
 		username: process.env.username
 		password: process.env.password
 	},
-	channels: [ 'fnxlnt',
+	channels: [ 'fnxlntc',
 		'saullo',
 		'fkswp',
 		'piripakyz',
