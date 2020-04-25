@@ -6,7 +6,7 @@ const clientTwitch = new tmi.Client({
 		secure: true
 	},
 	identity: {
-		username: process.env.username
+		username: process.env.username,
 		password: process.env.password
 	},
 	channels: [ 'teste',
