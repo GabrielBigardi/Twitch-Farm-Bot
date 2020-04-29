@@ -1,5 +1,5 @@
 const tmi = require('tmi.js');
-const clientTwitch = new tmi.Client({
+const client = new tmi.Client({
 	options: { debug: false },
 	connection: {
 		reconnect: true,
@@ -30,7 +30,7 @@ const clientTwitch = new tmi.Client({
 		'tutu_dias'
 	]
 });
-clientTwitch.connect();
+client.connect();
 
 client.on("connecting", (address, port) => {
     console.log(`Tentando se conectar em: ${address}:${port}`);
@@ -52,7 +52,7 @@ client.on("pong", (latency) => {
     console.log(`PONG efetuado ! Latência: ${latency}`);
 });
 
-clientTwitch.on('message', (channel, tags, message, self) => {
+client.on('message', (channel, tags, message, self) => {
 	if(self) return;
 	if(message.toLowerCase() === '!testecomandao') {
 		console.log(`Comando recebido em ${channel}`);
