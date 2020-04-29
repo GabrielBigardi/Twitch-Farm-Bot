@@ -15,7 +15,7 @@ const clientTwitch = new tmi.Client({
 		'piripakyz',
 		'p4ndaotv',
 		'stereonline',
-		'rubini',
+		'fittipaldibrothers',
 		'mch_agg',
 		'surskity',
 		'eliastibianodoido',
