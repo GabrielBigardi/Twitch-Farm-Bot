@@ -45,7 +45,9 @@ client.on("disconnected", (reason) => {
 });
 
 client.on("join", (channel, username, self) => {
-    console.log(`${username} entrou no canal: ${channel}`);
+	if(self){
+		console.log(`${username} entrou no canal: ${channel}`);
+	}
 });
 
 client.on("pong", (latency) => {
