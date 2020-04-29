@@ -1,6 +1,6 @@
 const tmi = require('tmi.js');
 const clientTwitch = new tmi.Client({
-	options: { debug: true },
+	options: { debug: false },
 	connection: {
 		reconnect: true,
 		secure: true
@@ -31,9 +31,30 @@ const clientTwitch = new tmi.Client({
 	]
 });
 clientTwitch.connect();
+
+client.on("connecting", (address, port) => {
+    console.log(`Tentando se conectar em: ${address}:${port}`);
+});
+
+client.on("connected", (address, port) => {
+    console.log(`Conectado com sucesso: ${address}:${port}`);
+});
+
+client.on("disconnected", (reason) => {
+    console.log(`Desconectado. Razão: ${reason}`);
+});
+
+client.on("join", (channel, username, self) => {
+    console.log(`${username} entrou no canal: ${channel}`);
+});
+
+client.on("pong", (latency) => {
+    console.log(`PONG efetuado ! Latência: ${latency}`);
+});
+
 clientTwitch.on('message', (channel, tags, message, self) => {
 	if(self) return;
 	if(message.toLowerCase() === '!testecomandao') {
-		clientTwitch.say(channel, `@${tags.username}, salve!`);
+		console.log(`Comando recebido em ${channel}`);
 	}
 });
