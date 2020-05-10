@@ -27,7 +27,8 @@ const client = new tmi.Client({
 		'cogu',
 		'murilo_rt',
 		'jschritte',
-		'tutu_dias'
+		'tutu_dias',
+		'fbzfps'
 	]
 });
 client.connect();
