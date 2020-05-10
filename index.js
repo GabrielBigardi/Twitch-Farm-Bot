@@ -55,6 +55,10 @@ client.on("pong", (latency) => {
     console.log(`PONG efetuado ! Latência: ${latency}`);
 });
 
+client.on("msg_banned", (channel) => {
+    console.log(`Banido de enviar mensagens em: ${channel}`);
+});
+
 client.on('message', (channel, tags, message, self) => {
 	if(self) return;
 	if(message.toLowerCase() === '!testecomandao') {
