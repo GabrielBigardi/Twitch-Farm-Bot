@@ -52,7 +52,7 @@ client.on("join", (channel, username, self) => {
 });
 
 client.on("pong", (latency) => {
-    console.log(`PONG efetuado ! Latência: ${latency}`);
+    //console.log(`PONG efetuado ! Latência: ${latency}`);
 });
 
 client.on("msg_banned", (channel) => {
