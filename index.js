@@ -28,7 +28,8 @@ const client = new tmi.Client({
 		'murilo_rt',
 		'jschritte',
 		'tutu_dias',
-		'fbzfps'
+		'fbzfps',
+		'nattank'
 	]
 });
 client.connect();
