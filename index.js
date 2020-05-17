@@ -1,3 +1,5 @@
+var farmChannels = process.env.farmChannels.split(' ');
+
 const tmi = require('tmi.js');
 const client = new tmi.Client({
 	options: { debug: false },
@@ -9,28 +11,7 @@ const client = new tmi.Client({
 		username: process.env.username,
 		password: process.env.password
 	},
-	channels: [ 'fnxlntc',
-		'saullo',
-		'fkswp',
-		'piripakyz',
-		'p4ndaotv',
-		'stereonline',
-		'fittipaldibrothers',
-		'mch_agg',
-		'surskity',
-		'eliastibianodoido',
-		'player_dbr',
-		'rabiscoart',
-		'marcaorx',
-		'metyzera',
-		'shktt',
-		'cogu',
-		'murilo_rt',
-		'jschritte',
-		'tutu_dias',
-		'fbzfps',
-		'nattank'
-	]
+	channels: farmChannels
 });
 client.connect();
 
