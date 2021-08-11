@@ -1,3 +1,4 @@
+require('dotenv').config()
 var farmChannels = process.env.farmChannels.split(' ');
 
 const tmi = require('tmi.js');
