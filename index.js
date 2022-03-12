@@ -1,18 +1,18 @@
-require('dotenv').config()
-var farmChannels = process.env.farmChannels.split(' ');
+var parseArgs = require('minimist')(process.argv.slice(2))
+var farmChannels = parseArgs['farmChannels'].split(',');
 
 const tmi = require('tmi.js');
 const client = new tmi.Client({
-	options: { debug: false },
-	connection: {
-		reconnect: true,
-		secure: true
-	},
-	identity: {
-		username: process.env.username,
-		password: process.env.password
-	},
-	channels: farmChannels
+        options: { debug: false },
+        connection: {
+                reconnect: true,
+                secure: true
+        },
+        identity: {
+                username: parseArgs['user'],
+                password: parseArgs['pass']
+        },
+        channels: farmChannels
 });
 client.connect();
 
@@ -29,9 +29,9 @@ client.on("disconnected", (reason) => {
 });
 
 client.on("join", (channel, username, self) => {
-	if(self){
-		console.log(`${username} entrou no canal: ${channel}`);
-	}
+        if(self){
+                console.log(`${username} entrou no canal: ${channel}`);
+        }
 });
 
 client.on("pong", (latency) => {
@@ -39,8 +39,8 @@ client.on("pong", (latency) => {
 });
 
 client.on('message', (channel, tags, message, self) => {
-	if(self) return;
-	if(message.toLowerCase() === '!testecomandao') {
-		console.log(`Comando recebido em ${channel}`);
-	}
+        if(self) return;
+        if(message.toLowerCase() === '!testecomandao') {
+                console.log(`Comando recebido em ${channel}`);
+        }
 });
